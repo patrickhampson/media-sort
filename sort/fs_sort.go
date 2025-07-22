@@ -237,7 +237,7 @@ func (fs *fsSort) add(path string, info os.FileInfo) error {
 	if info.Mode().IsRegular() {
 		fs.stats.found++
 		//skip unmatched file types
-		if !fs.validExts[filepath.Ext(path)] {
+		if !fs.validExts[strings.ToLower(filepath.Ext(path))] {
 			fs.verbf("skip unmatched file ext: %s", path)
 			return nil
 		}
