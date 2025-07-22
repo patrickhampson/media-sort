@@ -118,7 +118,7 @@ func FileSystemSort(c Config) error {
 		fs.linkType = hardLink
 	}
 	for _, e := range strings.Split(c.Extensions, ",") {
-		fs.validExts["."+e] = true
+		fs.validExts["."+strings.ToLower(e)] = true
 	}
 	//sort loop
 	for {
